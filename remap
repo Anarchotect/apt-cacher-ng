@@ -1,0 +1,9 @@
+#!/bin/bash
+
+#$1=backend $2=URL $3=fake_URL
+# EXAMPLE: `remap docker 'https://download.docker.com/linux/debian' 'http://fake.docker.com'`
+#echo 'https://download.docker.com/linux/debian' > /etc/apt-cacher-ng/backends_docker
+#echo 'Remap-docker: http://fake.docker.com ; file:backends_docker' >> /etc/apt-cacher-ng/acng.conf
+
+echo "${2}" > "/etc/apt-cacher-ng/backends_${1}"
+echo "Remap-${1}: http://acng.${1}.com ; file:backends_${1}" >> /etc/apt-cacher-ng/acng.conf

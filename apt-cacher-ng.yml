@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  apt-cacher-ng:
+    container_name: apt-cacher-ng
+    image: anarchotect/apt-cacher-ng
+    restart: always
+    ports:
+      - 3142:3142
+    volumes:
+      - /data/var/srv/apt-cacher-ng/:/var/cache/apt-cacher-ng/
+      - /data/var/srv/apt-cacher-ng/log/:/var/log/apt-cacher-ng/
